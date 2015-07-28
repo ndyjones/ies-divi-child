@@ -573,4 +573,21 @@ fieldset[disabled] .btn {
 
 
 
-/*what else?*/
+/* Courses CPT styles */
+
+table#ies_course_table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+table#ies_course_table tr td {
+    padding: 0 0 1px;
+}
+
+#ies_course_table ul,li {
+  list-style-type: none;
+}
+
+#ies_course_table a {
+  font-size: 18px;
+}
