@@ -404,12 +404,26 @@ fieldset[disabled] .btn {
 
 .ies_course-meta {
   float:right;
-  margin-left: 14px;
-  width: 200px;
+  width: 20.875%;
+  padding-left: 30px;
+}
+
+.ies_course-meta #left-area {
+      float: left;
+      padding-right: 5.5%;
+    }
+
+@media only screen and ( min-width: 981px ) and ( max-width: 1100px ) {
+  .ies_course-meta { width: 165px; margin-left: 30px; }
+}
+
+@media only screen and ( max-width: 980px ) {
+  .ies_course-meta { width: auto; float: none; padding-right: 0; padding-left: 0; }
 }
 
 .ies_course-meta hr {
-  border-top: 1px dashed #8c8b8b;
+  border-top: 1px dashed #c2c2c2;
+  margin-bottom: 20px;
 }
 
 .ies_courseblock {
@@ -443,7 +457,7 @@ fieldset[disabled] .btn {
   border-radius: 3px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   margin-bottom: 14px;
@@ -458,6 +472,25 @@ fieldset[disabled] .btn {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
   margin-bottom: 14px;
+}
+
+/* Courses CPT styles */
+
+table#ies_course_table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+table#ies_course_table tr td {
+    padding: 0 0 1px;
+}
+
+#ies_course_table ul,li {
+  list-style-type: none;
+}
+
+#ies_course_table a {
+  font-size: 18px;
 }
 
 /* staff custom post type display styles */
@@ -573,21 +606,4 @@ fieldset[disabled] .btn {
 
 
 
-/* Courses CPT styles */
-
-table#ies_course_table {
-  width: 90%;
-  border-collapse: collapse;
-}
-
-table#ies_course_table tr td {
-    padding: 0 0 1px;
-}
-
-#ies_course_table ul,li {
-  list-style-type: none;
-}
-
-#ies_course_table a {
-  font-size: 18px;
-}
+/*what else?*/

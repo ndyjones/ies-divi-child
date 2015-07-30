@@ -31,9 +31,11 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 							<p class="ies_post-author"><?php 
 								$the_display_author = get_post_meta( $post->ID, 'display_author', true );
 								echo 'Written by <a href="' . get_permalink($the_display_author) . '">' . get_the_title($the_display_author) . '</a>';
-								?></p>
-								<?php } ?>
-
+								?>
+							</p>
+							<?php } ?>
+							
+							
 							<?php if ( ! post_password_required() ) : et_divi_post_meta(); ?>
 
 							<?php endif; ?>
@@ -121,6 +123,15 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 						wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'Divi' ), 'after' => '</div>' ) );
 					?>
+
+					<!-- Display ACF PDF attachment if availble -->
+							<p><?php 
+								$attachPDF = the_field('ies_story_pdf');
+								if($attachPDF) {
+									echo '<a href="'. $attachPDF . '"><h4>&#9658; Download a PDF version of this article.</h4></a>'
+								} ?>
+							</p>
+
 					</div> <!-- .entry-content -->
 					<div class="et_post_meta_wrapper">
 					<?php

@@ -41,7 +41,10 @@
 				<?php if (et_get_option('divi_integration_single_bottom') <> '' && et_get_option('divi_integrate_singlebottom_enable') == 'on') echo(et_get_option('divi_integration_single_bottom')); ?>
 			<?php endwhile; ?>
 			</div> <!-- #left-area -->
-			<div class="ies_course-meta">
+
+			<?php get_sidebar(); ?> 
+			
+			<div class="ies_course-meta"> 
 						<h3>Course Info</h3>
 							<hr>
 							<p><h4>Instructor:</h4> <?php
@@ -77,15 +80,19 @@
 									echo '<h4>Registration:</h4>';
 									echo '<br />';
 									$register_url = get_post_meta($post->ID, 'registration_link', true);
-									echo '<p align="center"><a href="' . $register_url . '" target="_blank" class="register_btn" align="center">Sign up for this course</a></p>';
+									echo '<p align="center"><a href="' . $register_url . '" target="_blank" class="register_btn" align="center">REGISTER ONLINE</a></p>';
 
 								}
-								?></p>
+								?>
+							</p>
+							<hr>
 
-<hr>
+			
+					
+			</div><!-- .ies_course-meta -->
 
-					</div>
-			<?php get_sidebar(); ?>
+			
+
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 </div> <!-- #main-content -->

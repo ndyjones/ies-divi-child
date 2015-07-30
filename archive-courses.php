@@ -16,6 +16,7 @@ get_header(); ?>
 					 $args = array( 'post_type' => 'courses',
 						
 						'posts_per_page' => 30,
+						'orderby' => 'menu_order title',
 						'order' => 'ASC',
 					 );
 					 $the_courses = new WP_Query( $args );
