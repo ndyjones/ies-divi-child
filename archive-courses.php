@@ -30,6 +30,7 @@ get_header(); ?>
 							$rows = get_field('sessions');
 							
 							echo '<br /><li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+							echo the_excerpt();
 							echo '<table id="ies_course_table">';
 
 							if ($rows) {

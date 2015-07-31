@@ -26,7 +26,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 							<?php else : ?>
 							
 							<h1><?php the_title(); ?></h1>
-							<?php if ( in_category( 'blog') ) { ?>
+							<?php if ( in_category( 'blog') && get_field('display_author') ) { ?>
 							<!-- Display the post's credited author rather than wp admin author -->
 							<p class="ies_post-author"><?php 
 								$the_display_author = get_post_meta( $post->ID, 'display_author', true );
@@ -125,12 +125,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 					?>
 
 					<!-- Display ACF PDF attachment if availble -->
-							<p><?php 
-								$attachPDF = the_field('ies_story_pdf');
-								if($attachPDF) {
-									echo '<a href="'. $attachPDF . '"><h4>&#9658; Download a PDF version of this article.</h4></a>'
-								} ?>
-							</p>
+							<?php 
+								if( get_field('ies_story_pdf') ) :
+									$attachPDF = the_field('ies_story_pdf');
+									echo '<p><a href="'. $attachPDF . '"><h4>&#9658; Download a PDF version of this article.</h4></a></p>';
+								endif; ?>
+							
 
 					</div> <!-- .entry-content -->
 					<div class="et_post_meta_wrapper">

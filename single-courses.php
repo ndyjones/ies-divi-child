@@ -74,7 +74,7 @@
 										'<br> Start Date:  ' . $start_output .
 										'<br> End Date:  ' . $end_output .
 										'<br> Time:  ' . $row['time'] .
-										'<br> Cost:  ' . $row['cost'] .
+										'<br> Cost:  $' . $row['cost'] .
 										'</div>';
 									}
 									echo '<h4>Registration:</h4>';
