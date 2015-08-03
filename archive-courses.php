@@ -41,7 +41,13 @@ get_header(); ?>
 								  $start_output = DateTime::createFromFormat('Ymd', $row['start_date'])->format('F d, Y');
 								  $end_output = DateTime::createFromFormat('Ymd', $row['end_date'])->format('F d, Y');
 								  $register_url = get_post_meta($post->ID, 'registration_link', true);
-								  echo '<tr><td> Location: ' . $name_id . '</td><td> Date: ' . $start_output . '</td><td>Cost: ' . $cost . '</td></tr>';
+								  echo '<tr><td> Location: ' . $name_id . '</td><td> Date: ' . $start_output . '</td>';
+								  if ($row['cost'] == "0" ) {
+											echo '<td>Cost: FREE </td></tr>';
+											} else {
+											echo '<td>Cost: ' . $cost . '</td></tr>'; 
+										}
+								  
 								}
 							}
 

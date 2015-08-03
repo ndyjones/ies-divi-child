@@ -73,9 +73,12 @@
 										echo '	<div class="ies_courseblock">Location:  ' . $name_id .
 										'<br> Start Date:  ' . $start_output .
 										'<br> End Date:  ' . $end_output .
-										'<br> Time:  ' . $row['time'] .
-										'<br> Cost:  $' . $row['cost'] .
-										'</div>';
+										'<br> Time:  ' . $row['time'] ;
+										if ($row['cost'] == "0" ) {
+											echo '<br> Cost: FREE </div>';
+											} else {
+											echo '<br> Cost:  $' . $row['cost'] .
+										'</div>';}
 									}
 									echo '<h4>Registration:</h4>';
 									echo '<br />';
