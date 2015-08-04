@@ -12,11 +12,18 @@
 					<p class="ies_staff-title"><?php echo get_post_meta($post->ID, 'staff_title', true); ?></p>
 
 					<p class="ies_staff-contact">
+						<?php if ( get_field('staff_email') ): ?>
 						Email: <a href="mailto:<?php echo antispambot( get_post_meta($post->ID, 'staff_email', true) ); ?>">
 						<?php echo get_post_meta($post->ID, 'staff_email', true); ?></a>
-					 | Phone: <a href="tel:<?php echo get_post_meta($post->ID, 'staff_phone', true); ?>">
-					 <?php echo get_post_meta($post->ID, 'staff_phone', true); ?></a></p>
-					 <p class="ies_staff-contact"><?php if ( has_term( '', 'location' )){ echo get_the_term_list( $post->ID, 'location', 'Service Areas: ', ', ', '' );  } ?></p>
+						<?php endif; ?>
+
+						<?php if ( get_field('staff_phone') ): ?>
+					 	| Phone: <a href="tel:<?php echo get_post_meta($post->ID, 'staff_phone', true); ?>">
+					 	<?php echo get_post_meta($post->ID, 'staff_phone', true); ?></a>
+					 	<?php endif; ?>
+					 </p>
+
+					 	<p class="ies_staff-contact"><?php if ( has_term( '', 'location' )){ echo get_the_term_list( $post->ID, 'location', 'Service Areas: ', ', ', '' );  } ?></p>
 					
 				<?php
 					if ( has_post_thumbnail() ) :
@@ -25,9 +32,9 @@
 
 						$thumb = '';
 
-						$width = (int) apply_filters( 'et_pb_index_blog_image_width', 300 );
+						$width = (int) apply_filters( 'et_pb_index_blog_image_width', 225 );
 
-						$height = (int) apply_filters( 'et_pb_index_blog_image_height', 500 );
+						$height = (int) apply_filters( 'et_pb_index_blog_image_height', 300 );
 						$classtext = 'ies_staff-photo';
 						$titletext = get_the_title();
 						$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
@@ -40,17 +47,23 @@
 				?>
 
 					<div class="entry-content">
-					<?php
-						the_content();
+					
+					<!-- Content block if needed -->
+					<?php the_content(); ?>
 
-						wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'Divi' ), 'after' => '</div>' ) );
-					?>
+
+					<!-- Load Bio if avail -->
+					<?php if ( get_field('staff_bio') ): ?>
+					
 					<div class="ies_staff-bio">
 						<h3>Bio</h3>
 							<p><?php echo get_post_meta($post->ID, 'staff_bio', true); ?></p>
-						</div>
-				</div>
-			<!-- .entry-content -->
+					</div> <!-- #ies_staff-bio -->
+
+					<?php endif; ?>
+
+				</div><!-- .entry-content -->
+			
 
 					<?php
 					if ( et_get_option('divi_468_enable') == 'on' ){
