@@ -33,8 +33,7 @@ get_header(); ?>
 								'posts_per_page' => -1,
 								'orderby' => 'menu_order title',
 								'order'   => 'ASC'
-								/*'meta_key'		=> 'staff_category',
-								'meta_value'	=> 'leadership'*/
+								
 							);
 
 							// query

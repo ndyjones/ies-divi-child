@@ -29,8 +29,11 @@ get_header(); ?>
 					<?php $args = array(
 								'numberposts'	=> -1,
 								'post_type'		=> 'staff',
+								'posts_per_page' => -1,
 								'meta_key'		=> 'staff_category',
-								'meta_value'	=> 'improvement'
+								'meta_value'	=> 'improvement',
+								'orderby'		=> 'name',
+								'order'			=> 'ASC'
 							);
 
 							// query
