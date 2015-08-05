@@ -45,7 +45,7 @@ get_header(); ?>
 								  if ($row['cost'] == "0" ) {
 											echo '<td>Cost: FREE </td></tr>';
 											} else {
-											echo '<td>Cost: ' . $cost . '</td></tr>'; 
+											echo '<td>Cost: $' . $cost . '</td></tr>'; 
 										}
 								  
 								}

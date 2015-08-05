@@ -5,7 +5,7 @@
  Author:       Nicolle Jones
  Author URI:   http://example.com
  Template:     Divi
- Version:      1.0.0
+ Version:      1.1.1
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         divi, ncsu, custom post types
@@ -485,13 +485,17 @@ table#ies_course_table tr td {
     padding: 0 0 1px;
 }
 
-#ies_course_table ul,li {
+#ies_course_table ul {
   list-style-type: none;
 }
 
+#ies_course_table li {
+  list-style-type: none;
+}
 #ies_course_table a {
   font-size: 18px;
 }
+
 
 /* staff custom post type display styles */
 
@@ -604,6 +608,104 @@ table#ies_course_table tr td {
   word-wrap: normal;
 }
 
+/* Contact Form Styles */
 
+.IES-contactForm {
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+
+.IES-contactForm .form-item {
+    display: block;
+}
+
+.form-block {
+    margin: 30px 0 0;
+}
+
+.form-item {
+    clear: left;
+    padding: 15px 0 0;
+    font-size: 14px;
+    font-size: 1rem;
+    position: relative;
+}
+
+.IES-contactForm label {
+    float: left;
+    width: 200px;
+    margin: 0 20px 0 0;
+    font-size: 1em;
+    color: #333;
+    padding: 6px 0 0 0;
+    font-weight: normal;
+    text-align: right;
+    display: block;
+}
+
+.IES-contactForm textarea {
+    height: 70px;
+    width: 250px; 
+}
+
+
+.form-block select {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    font-size: 16px;
+    font-size: 1rem;
+    border: 1px solid #d0d0d0;
+    background: #fff none;
+}
+
+.form-block input {
+    height: 36px;
+    line-height: 36px;
+    padding: 2px 10px;
+    font-size: 16px;
+    font-size: 1rem;
+    border: 1px solid #d0d0d0;
+    background: #fff none;
+    width: 250px;
+}
+
+
+.IES-contactForm input[type="submit"] {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.6;
+  text-align: center;
+  color: #fff;
+  background-color: #c00;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin-left: 175px;
+}
+
+.IES-contactForm input[type="submit"]:hover {
+  color: #fff;
+  background-color: #600;
+}
+
+
+.IES-contactForm select[multiple]{
+     height: 60px;
+     width: 250px;
+   }
 
 /*what else?*/
