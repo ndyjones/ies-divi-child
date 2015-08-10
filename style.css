@@ -5,7 +5,7 @@
  Author:       Nicolle Jones
  Author URI:   http://example.com
  Template:     Divi
- Version:      1.1.1
+ Version:      1.1.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         divi, ncsu, custom post types
@@ -21,7 +21,9 @@
 */
 
 
-/*NCSU Brand Colors + button */
+/*NCSU Brand elements, colors + button */
+
+body { font-family: "UniversRoman", Arial, sans-serif; }
 
 @font-face {
   font-family: 'ncsu-icons';
@@ -286,7 +288,7 @@
           user-select: none;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 .btn:focus {
@@ -313,6 +315,38 @@ fieldset[disabled] .btn {
   opacity: .35;
 }
 
+/*NCSU Blank Page styles */
+
+.page-lead {
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+  }
+
+
+/*NCSU Branding Bar styles */
+
+.ncstate-utility-bar {
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 30px;
+    font-family: Univers, arial, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 9997 !important;
+    overflow: visible;
+}
+
+
 /*Divi template & plugin tweaks */
 
 /* ET Slider resized to match NCSU front page dimensions */
@@ -333,14 +367,56 @@ fieldset[disabled] .btn {
     }
 }
 
+#main-footer .et_pb_widget a {
+    text-decoration: none;
+    color: #c00;
+}
+
 /*.et_pb_row { padding-top: 30px !important; }*/
 
 /* Set the semi-transparent background color */
+/*NCSU Brand version */
+
+#ies-slider-module .et_pb_slide_description {
+  width:500px;
+  position: inherit;
+  float: left;
+  text-align: left;
+  margin-left: -85px;
+
+}
+#ies-slider-module .et_pb_slide_content,
+.et_pb_slide_description h2,
+.et_pb_more_button_wrap {
+  background-color: #c00;  
+}
+
+
+@media only screen and (min-width: 768px) #ies-slider-module
+.et_pb_slider .et_pb_slide_description {
+    position: inherit;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: auto !important;
+    float: left;
+    left: 0%;
+    width: 500px;
+    margin-left: -85px;
+}
+
+/*
+.et_pb_slide_content,
+.et_pb_slide_description h2,
+.et_pb_more_button_wrap {
+  background-color: #c00;  
+} */
+
+/*removed
 .et_pb_slide_content,
 .et_pb_slide_description h2,
 .et_pb_more_button_wrap {
   background-color: rgba(0, 0, 0, 0.5);  
-}
+} */
 
 /* Hide the content area if empty (no title and no content) */
 .et_pb_slide_description:first-child .et_pb_slide_content:empty { display:none; }
@@ -358,7 +434,8 @@ fieldset[disabled] .btn {
   padding:0px 30px 30px 30px !important;
   margin-left:-30px;
   margin-right:-30px;
-}
+} 
+
 @media only screen and ( max-width: 479px ) { 
   .et_pb_slide_description h2 {
     padding-bottom: 30px !important;
@@ -368,7 +445,8 @@ fieldset[disabled] .btn {
   }
 }
 
-/* Give the background rounded corners */
+/* Give the background rounded corners 
+NCSU brand = no rounded
 .et_pb_slide_description h2 {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -383,6 +461,7 @@ fieldset[disabled] .btn {
     border-bottom-right-radius: 5px;
   }
 }
+*/
 
 
 
@@ -452,9 +531,9 @@ fieldset[disabled] .btn {
   background-image: -ms-linear-gradient(top, #c00, #900);
   background-image: -o-linear-gradient(top, #c00, #900);
   background-image: linear-gradient(to bottom, #c00, #900);
-  -webkit-border-radius: 3;
-  -moz-border-radius: 3;
-  border-radius: 3px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
   font-family: Arial;
   color: #ffffff;
   font-size: 14px;
@@ -693,7 +772,7 @@ table#ies_course_table tr td {
           user-select: none;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: 0px;
   margin-left: 175px;
 }
 
