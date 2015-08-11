@@ -57,7 +57,7 @@
 							<p><h4>Instructor</h4> <?php
 									$ies_instructors = get_post_meta($post->ID, 'instructor', true);
 									foreach ($ies_instructors as $instructor_object){
-										echo get_the_title($instructor_object);
+										echo '<a href="' . get_permalink($instructor_object) . '">' . get_the_title($instructor_object) . '</a><br />';
 									}
 									?>
 							</p>
