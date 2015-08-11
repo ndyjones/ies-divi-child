@@ -35,20 +35,29 @@ get_header(); ?>
 
 							if ($rows) {
 								foreach($rows as $row) {
-								  $loc_id = get_term_by('id', $row['location'], 'location');
-								  $cost = $row['cost'];
-								  $name_id = $loc_id->name;
-								  $start_output = DateTime::createFromFormat('Ymd', $row['start_date'])->format('F d, Y');
-								  $end_output = DateTime::createFromFormat('Ymd', $row['end_date'])->format('F d, Y');
-								  $register_url = get_post_meta($post->ID, 'registration_link', true);
-								  echo '<tr><td> Location: ' . $name_id . '</td><td> Date: ' . $start_output . '</td>';
-								  if ($row['cost'] == "0" ) {
+									if ( $row['end_date'] < date('Ymd') ) {
+
+												//date is past
+									} else {
+										$loc_id = get_term_by('id', $row['location'], 'location');
+										$cost = $row['cost'];
+										$name_id = $loc_id->name;
+										$start_output = DateTime::createFromFormat('Ymd', $row['start_date'])->format('F d, Y');
+										$end_output = DateTime::createFromFormat('Ymd', $row['end_date'])->format('F d, Y');
+												 
+										echo '<tr><td> Location: ' . $name_id . '</td><td> Date: ' . $start_output . '</td>';
+										if ($row['cost'] == "0" ) {
 											echo '<td>Cost: FREE </td></tr>';
-											} else {
+										} else {
 											echo '<td>Cost: $' . $cost . '</td></tr>'; 
 										}
 								  
+									}
 								}
+							
+							} else {
+							
+								echo '<tr><td>No upcoming dates.</td></tr>';
 							}
 
 							echo '</table>';

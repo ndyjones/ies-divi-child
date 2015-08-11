@@ -47,7 +47,14 @@
 			<div class="ies_course-meta"> 
 						<h3>Course Info</h3>
 							<hr>
-							<p><h4>Instructor:</h4> <?php
+							<p><h4>Registration</h4>For location details and single session sign-ups:<br /></p>
+
+								<?php
+								 $register_url = get_post_meta($post->ID, 'registration_link', true);
+									echo '<p align="center"><a href="' . $register_url . '" target="_blank" class="register_btn" align="center">REGISTER ONLINE</a></p>';
+								?>
+							
+							<p><h4>Instructor</h4> <?php
 									$ies_instructors = get_post_meta($post->ID, 'instructor', true);
 									foreach ($ies_instructors as $instructor_object){
 										echo get_the_title($instructor_object);
@@ -55,39 +62,47 @@
 									?>
 							</p>
 
-							<p><h4>Delivery option:</h4> <?php echo get_post_meta($post->ID, 'delivery', true); ?></p>
-
 							<p><?php
 
-								$rows = get_field('sessions');
-								if($rows)
-								{
-									echo '<h4>Dates:</h4>';
-
-									foreach($rows as $row)
+									$rows = get_field('sessions');
+									if($rows)
 									{
-									$loc_id = get_term_by('id', $row['location'], 'location');
-									$name_id = $loc_id->name;
-									$start_output = DateTime::createFromFormat('Ymd', $row['start_date'])->format('F d, Y');
-									$end_output = DateTime::createFromFormat('Ymd', $row['end_date'])->format('F d, Y');
-										echo '	<div class="ies_courseblock">Location:  ' . $name_id .
-										'<br> Start Date:  ' . $start_output .
-										'<br> End Date:  ' . $end_output .
-										'<br> Time:  ' . $row['time'] ;
-										if ($row['cost'] == "0" ) {
-											echo '<br> Cost: FREE </div>';
-											} else {
-											echo '<br> Cost:  $' . $row['cost'] .
-										'</div>';}
-									}
-									echo '<h4>Registration:</h4>';
-									echo '<br />';
-									$register_url = get_post_meta($post->ID, 'registration_link', true);
-									echo '<p align="center"><a href="' . $register_url . '" target="_blank" class="register_btn" align="center">REGISTER ONLINE</a></p>';
+										echo '<h4>Upcoming Dates</h4>';
 
-								}
+										foreach($rows as $row)
+										{
+											$loc_id = get_term_by('id', $row['location'], 'location');
+											$name_id = $loc_id->name;
+											$start_output = DateTime::createFromFormat('Ymd', $row['start_date'])->format('F d, Y');
+											$end_output = DateTime::createFromFormat('Ymd', $row['end_date'])->format('F d, Y');
+											//check if end date past
+											if ( $row['end_date'] < date('Ymd') ) {
+
+												//date is past
+											} else {
+
+												echo '	<div class="ies_courseblock">Location:  ' . $name_id .
+												'<br> Start Date:  ' . $start_output .
+												'<br> End Date:  ' . $end_output .
+												'<br> Time:  ' . $row['time'] ;
+												if ($row['cost'] == "0" ) {
+													echo '<br> Cost: FREE </div>';
+													} else {
+													echo '<br> Cost:  $' . $row['cost'] .
+												'</div>';}
+											
+											}
+										}
+
+									} else {
+										echo '<h4>Upcoming Dates</h4>';
+										echo '<p>There are no courses scheduled at this time. If you would like to be notified when the course is scheduled or suggest a course, please fill out <a href="https://docs.google.com/a/ncsu.edu/spreadsheet/viewform?formkey=dGtGb1hFOHN5Q1J2OGhDWXBwemI4d0E6MQ" target="_blank">this form</a>.</p>';
+									}
+								
 								?>
-							</p>
+								<p><h4>On-Site Availability</h4>
+								Any of our open enrollment classes can be brought on-site. Please contact the <a href="http://www.ies.ncsu.edu/staff-list/regional-managers/">IES Regional Manager</a> in your area for more information.
+								</p>
 							<hr>
 
 			
