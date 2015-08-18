@@ -26,12 +26,19 @@ get_header(); ?>
 
 						echo '<ul id="ies_course_table">';
 						while ( $the_courses->have_posts() ) : $the_courses->the_post();
+							$deliveryvalue = get_post_meta($post->ID, 'delivery', true);
+
+
 							$ies_instructors = get_post_meta($post->ID, 'instructor', true);
 							$rows = get_field('sessions');
 							
 							echo '<br /><li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
 							echo the_excerpt();
 							echo '<table id="ies_course_table">';
+
+							if ( $deliveryvalue == 'Online' ) {
+								echo '<tr><td><strong>Online Course</strong> This course is delivered on-demand, electronically.</td></tr>';
+							} else
 
 							if ($rows) {
 								foreach($rows as $row) {

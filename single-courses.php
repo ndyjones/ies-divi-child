@@ -54,15 +54,24 @@
 									echo '<p align="center"><a href="' . $register_url . '" target="_blank" class="register_btn" align="center">REGISTER ONLINE</a></p>';
 								?>
 							
-							<p><h4>Instructor</h4> <?php
+							<p>
+								<?php
 									$ies_instructors = get_post_meta($post->ID, 'instructor', true);
-									foreach ($ies_instructors as $instructor_object){
+									if ($ies_instructors !== null ) { 
+										echo '<h4>Instructor</h4>';
+										foreach ($ies_instructors as $instructor_object) {
 										echo '<a href="' . get_permalink($instructor_object) . '">' . get_the_title($instructor_object) . '</a><br />';
+										}
 									}
-									?>
+								?>
 							</p>
 
 							<p><?php
+								$deliveryvalue = get_post_meta($post->ID, 'delivery', true);
+
+								if ( $deliveryvalue == 'Online' ) {
+									echo '<h4>Online Course</h4>This course is delivered on-demand, electronically.';
+								} else {
 
 									$rows = get_field('sessions');
 									if($rows)
@@ -98,6 +107,7 @@
 										echo '<h4>Upcoming Dates</h4>';
 										echo '<p>There are no courses scheduled at this time. If you would like to be notified when the course is scheduled or suggest a course, please fill out <a href="https://docs.google.com/a/ncsu.edu/spreadsheet/viewform?formkey=dGtGb1hFOHN5Q1J2OGhDWXBwemI4d0E6MQ" target="_blank">this form</a>.</p>';
 									}
+								}
 								
 								?>
 								<p><h4>On-Site Availability</h4>
