@@ -9,16 +9,31 @@ get_header(); ?>
 			<div id="left-area">
 
 				<h1>All IES Courses</h1>
+				
+				<div> <!-- COURSES SEARCH FORM -->
+					<h4 >Search our Courses and Professional Development offerings:</h4>
+					<form role="search" method="get" id="searchform" action="<?php echo site_url(); ?>/courses">
+						<input type="text" name="s" placeholder="Find Courses"/>
+						<input type="hidden" name="post_type" value="courses" />
+						<input type="submit" alt="Search" value="Go!" />
+					</form>
+				</div>
+				
 				<article>
 					<div id="course-print">
-				<?php
+					
+					<?php
+					// set the "paged" parameter (use 'page' if the query is on a static front page)
+    				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
-					 $args = array( 'post_type' => 'courses',
+					$args = array( 'post_type' => 'courses',
 						
-						'posts_per_page' => 30,
+						'posts_per_page' => -1,
+						/* 'paged' => $paged, */
 						'orderby' => 'menu_order title',
 						'order' => 'ASC',
 					 );
+					
 					 $the_courses = new WP_Query( $args );
 					
 					if ( $the_courses->have_posts() ) :
@@ -71,15 +86,19 @@ get_header(); ?>
 
 							
 						endwhile;
-						echo '</ul>';
+						echo '</ul>'; ?>
+
+						<!-- pagination here -->
 
 
+					<?php endif; ?>
 
-					endif;
-				?>
 
 					</div>
-				</article>
+					
+				</article>	
+				
+
 
 
 

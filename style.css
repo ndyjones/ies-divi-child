@@ -1,11 +1,9 @@
 /*
- Theme Name:   IES Divi Child Theme
- Theme URI:    http://example.com/
+ Theme Name:   IES Divi Child
  Description:  A Divi Child Theme for IES
  Author:       Nicolle Jones
- Author URI:   http://example.com
  Template:     Divi
- Version:      1.1.3
+ Version:      1.1.4
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         divi, ncsu, custom post types
@@ -15,10 +13,7 @@
 
 
 @import url("../Divi/style.css");
-/* Note that the previous method was to import the parent theme stylesheet using @import: this is no longer best practice.
-* The correct method of enqueuing the parent theme stylesheet is to add a wp_enqueue_scripts action and use wp_enqueue_style()
-* in your child theme's functions.php. Which will need to be added later.
-*/
+@import url("//cdn.ncsu.edu/brand-assets/fonts/include.css");
 
 
 /*NCSU Brand elements, colors + button */
@@ -329,32 +324,53 @@ fieldset[disabled] .btn {
   }
 
 
-/*NCSU Branding Bar styles */
-
-.ncstate-utility-bar {
-    overflow: hidden;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    width: 100%;
-    height: 30px;
-    font-family: Univers, arial, sans-serif;
-    font-size: 14px;
-    line-height: 1;
-    z-index: 9997 !important;
-    overflow: visible;
-}
-
-.iessearch-box input {
-  color: #999;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  width: 170px;
-}
-
 
 /*Divi template & plugin tweaks */
+
+/* Divi child header + utility styles fix for brand bar */
+#ncsu-brand-bar { top:50px; }
+
+
+/* Divi forces #main-header height val inline in header.php ln 116, have modded in child file */
+/*
+
+.et_fixed_nav #main-header, .et_fixed_nav #top-header { top: 30px; } 
+
+.ncstate-utility-bar .ncstate-utility-bar-wrapper-primary {
+    height: 30px;
+    position: fixed;
+}
+
+.ncstate-utility-bar .ncstate-utility-bar-tools {
+    position: fixed;
+ }
+ */
+
+/* Headers */
+h1, .h1, h2, .h2, { 
+    color: #333; 
+    margin-bottom: 14px; 
+    margin-top: 8px; 
+    line-height: 1.3em; 
+    font-weight: 600; }
+
+/*h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    color: inherit;
+    font-family: "UniversCondensed",Arial,sans-serif;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 11px;
+    margin-top: 22px;
+}*/
+
+/* Sidebar Widget links 
+  .et_pb_widget a {
+    text-decoration: none;
+    color: #c00;
+}*/
+
+ /* textwidget Specific link */
+.textwidget a:link {color: #c00;}
 
 /* ET Slider resized to match NCSU front page dimensions */
 @media only screen and ( min-width:768px ) {
@@ -793,5 +809,35 @@ table#ies_course_table tr td {
      height: 60px;
      width: 250px;
    }
+
+
+/* ============================================================
+  CUSTOM PAGINATION
+============================================================ */
+.custom-pagination span,
+.custom-pagination a {
+  display: inline-block;
+  padding: 2px 10px;
+}
+.custom-pagination a {
+  background-color: #ebebeb;
+  color: #ff3c50;
+}
+.custom-pagination a:hover {
+  background-color: #ff3c50;
+  color: #fff;
+}
+.custom-pagination span.page-num {
+  margin-right: 10px;
+  padding: 0;
+}
+.custom-pagination span.dots {
+  padding: 0;
+  color: gainsboro;
+}
+.custom-pagination span.current {
+  background-color: #ff3c50;
+  color: #fff;
+}
 
 /*what else?*/
