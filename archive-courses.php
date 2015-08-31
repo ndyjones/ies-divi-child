@@ -11,7 +11,7 @@ get_header(); ?>
 				<h1>All IES Courses</h1>
 				
 				<div> <!-- COURSES SEARCH FORM -->
-					<h4 >Search our Courses and Professional Development offerings:</h4>
+					<h4 >Browse our Courses and Professional Development offerings:</h4>
 					<form role="search" method="get" id="searchform" action="<?php echo site_url(); ?>/courses">
 						<input type="text" name="s" placeholder="Find Courses"/>
 						<input type="hidden" name="post_type" value="courses" />
@@ -87,8 +87,6 @@ get_header(); ?>
 							
 						endwhile;
 						echo '</ul>'; ?>
-
-						<!-- pagination here -->
 
 
 					<?php endif; ?>

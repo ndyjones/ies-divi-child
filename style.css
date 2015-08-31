@@ -3,7 +3,7 @@
  Description:  A Divi Child Theme for IES
  Author:       Nicolle Jones
  Template:     Divi
- Version:      1.1.4
+ Version:      1.1.5
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         divi, ncsu, custom post types
@@ -327,24 +327,26 @@ fieldset[disabled] .btn {
 
 /*Divi template & plugin tweaks */
 
+
+/* Divi Menus overrides for NCSU Brand bar */
 /* Divi child header + utility styles fix for brand bar */
-#ncsu-brand-bar { top:50px; }
+/*#ncsu-brand-bar { top:50px; } */
 
 
 /* Divi forces #main-header height val inline in header.php ln 116, have modded in child file */
-/*
 
-.et_fixed_nav #main-header, .et_fixed_nav #top-header { top: 30px; } 
+/*.et_fixed_nav #top-header { top: 30px; } */
 
-.ncstate-utility-bar .ncstate-utility-bar-wrapper-primary {
+/*#main-header { top: 60px; } */
+
+/*.ncstate-utility-bar .ncstate-utility-bar-wrapper-primary {
     height: 30px;
     position: fixed;
-}
+} */
 
-.ncstate-utility-bar .ncstate-utility-bar-tools {
+/*.ncstate-utility-bar .ncstate-utility-bar-tools {
     position: fixed;
- }
- */
+} */
 
 /* Headers */
 h1, .h1, h2, .h2, { 
@@ -369,8 +371,7 @@ h1, .h1, h2, .h2, {
     color: #c00;
 }*/
 
- /* textwidget Specific link */
-.textwidget a:link {color: #c00;}
+
 
 /* ET Slider resized to match NCSU front page dimensions */
 @media only screen and ( min-width:768px ) {
@@ -390,15 +391,84 @@ h1, .h1, h2, .h2, {
     }
 }
 
+.textwidget a:link {color: #c00;}
+
+@media only screen and ( min-width:768px ) {
+    /* Set the slider height */
+    .et_pb_slider, .et_pb_slider .et_pb_container { 
+        height: 500px !important; 
+    }
+    .et_pb_slider, .et_pb_slider .et_pb_slide { 
+        max-height: 500px; 
+    }
+    .et_pb_slider .et_pb_slide_description { 
+        position: relative; 
+        top: 25%; 
+        padding-top: 0 !important; 
+        padding-bottom:0 !important; 
+        height:auto !important; 
+    }
+}
+
+
+.et_pb_row { padding-top: 30px !important; }
+
+.tribe-mini-calendar-event .list-date {
+    float: left;
+    overflow: hidden;
+    font-weight: bold;
+    margin: 10px 5% 10px 0;
+    padding: 3px;
+    width: 10%;
+    text-align: center;
+    display: inline;
+    background: #c00;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.tribe-mini-calendar-event .list-date .list-dayname {
+    background: #fff;
+    color: #c00;
+    padding: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.glyphicon-email { top:5px;}
+
+.accolade_et_pb_slide_content {background-color: #990000;font-color:#fff;font-size:16px;line-height:1.7em;}
+
+
 #main-footer .et_pb_widget a {
     text-decoration: none;
     color: #c00;
 }
 
-/*.et_pb_row { padding-top: 30px !important; }*/
 
-/* Set the semi-transparent background color */
-/*NCSU Brand version */
+/* Mobile resolution element hides */
+
+@media only screen and ( max-width:480px ) {
+#ies-slider-module {
+    visibility: hidden;
+    display: none;
+  }
+
+.et_top_search {
+  visibility: hidden;
+  display: none;
+  }
+
+}
+
+
 
 #ies-slider-module .et_pb_slide_description {
   width:500px;
@@ -415,7 +485,7 @@ h1, .h1, h2, .h2, {
 }
 
 
-@media only screen and (min-width: 768px) #ies-slider-module
+@media only screen and (min-width: 768px) { #ies-slider-module
 .et_pb_slider .et_pb_slide_description {
     position: inherit;
     padding-top: 0 !important;
@@ -425,21 +495,9 @@ h1, .h1, h2, .h2, {
     left: 0%;
     width: 500px;
     margin-left: -85px;
+  }
 }
 
-/*
-.et_pb_slide_content,
-.et_pb_slide_description h2,
-.et_pb_more_button_wrap {
-  background-color: #c00;  
-} */
-
-/*removed
-.et_pb_slide_content,
-.et_pb_slide_description h2,
-.et_pb_more_button_wrap {
-  background-color: rgba(0, 0, 0, 0.5);  
-} */
 
 /* Hide the content area if empty (no title and no content) */
 .et_pb_slide_description:first-child .et_pb_slide_content:empty { display:none; }
@@ -489,13 +547,18 @@ NCSU brand = no rounded
 
 
 /*Tweet rotation plugin tweak */
-#tweet-row_front  {
-  padding: 0;
-  margin: 0 auto;
-  padding: -60px 0 0 0;
-  background-color: #ccc;
-  }
 
+.twit_scroll_home { height: 90px; } /* section class */
+.twit_body_home { margin-top:-30px; margin-left:-50px; white-space:nowrap; } /* Feed container class */
+
+p.rtw_main a {color: #CCCCCC; text-decoration: underline;}
+p.rtw_meta a {color: #CCCCCC; text-decoration: underline;}
+
+
+@media only screen and (max-width: 768px) {
+    .twit_scroll_home { height: 160px; margin-top: -30px; padding: 10px 25px; font-size: 12px; }
+    .twit_body_home { width:100%; padding: 1px;margin-top:-40px; margin-left:5px; white-space:nowrap; }
+}
 
 
 
@@ -598,6 +661,13 @@ table#ies_course_table tr td {
   font-size: 18px;
 }
 
+#uwpqsf_id {
+    border: none;
+}
+
+#course-print {
+  padding-top: 16px;
+}
 
 /* staff custom post type display styles */
 
@@ -722,7 +792,7 @@ table#ies_course_table tr td {
 }
 
 .form-block {
-    margin: 30px 0 0;
+    margin: 5px 0 0;
 }
 
 .form-item {
@@ -806,10 +876,46 @@ table#ies_course_table tr td {
 
 
 .IES-contactForm select[multiple]{
-     height: 60px;
+     height: 110px;
      width: 250px;
    }
 
+/* .squaredThree */
+.IES-contactForm input[type=checkbox] {
+  width: 20px;
+  position: relative;
+  margin: 0px 5px;
+  label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(top, #222 0%, #45484d 100%);
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
+    &:after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 3px solid #fcfff4;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+    &:hover::after {
+      opacity: 0.3;
+    }
+  }
+
+}
+/
 
 /* ============================================================
   CUSTOM PAGINATION

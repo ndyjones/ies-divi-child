@@ -105,7 +105,7 @@
 
 									} else {
 										echo '<h4>Upcoming Dates</h4>';
-										echo '<p>There are no courses scheduled at this time. If you would like to be notified when the course is scheduled or suggest a course, please fill out <a href="https://docs.google.com/a/ncsu.edu/spreadsheet/viewform?formkey=dGtGb1hFOHN5Q1J2OGhDWXBwemI4d0E6MQ" target="_blank">this form</a>.</p>';
+										echo '<p>There are no courses scheduled at this time. If you would like to be notified when the course is scheduled or suggest a course, please fill out <a href="http://www.ies.ncsu.edu/about/contact-us/" target="_blank">this form</a>.</p>';
 									}
 								}
 								
