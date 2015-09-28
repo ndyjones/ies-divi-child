@@ -12,11 +12,6 @@ get_header(); ?>
 				
 				<div> <!-- COURSES SEARCH FORM -->
 					<h4 >Browse our Courses and Professional Development offerings:</h4>
-					<form role="search" method="get" id="searchform" action="<?php echo site_url(); ?>/courses">
-						<input type="text" name="s" placeholder="Find Courses"/>
-						<input type="hidden" name="post_type" value="courses" />
-						<input type="submit" alt="Search" value="Go!" />
-					</form>
 				</div>
 				
 				<article>
