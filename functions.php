@@ -30,10 +30,17 @@ add_action( 'pre_get_posts', function ( $q ) {
 
 });
 
-// add async and defer to javascripts
-function wcs_defer_javascripts ( $url ) {
-    if ( FALSE === strpos( $url, '.js' ) ) return $url;
-    if ( strpos( $url, 'jquery.js' ) ) return $url;
+// add async to front-end javascripts
+function add_async_forscript ($url) {
+
+    if ( FALSE === strpos($url, '.js') || is_admin() ||  strpos( $url, 'jquery.js' ) ) {
+        return $url;
+    } 
     return "$url' async='async";
 }
-add_filter( 'clean_url', 'wcs_defer_javascripts', 11, 1 );
+
+add_filter('clean_url', 'add_async_forscript', 11, 1);
+
+
+
+?>
