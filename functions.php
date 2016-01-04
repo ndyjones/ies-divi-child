@@ -41,6 +41,30 @@ function add_async_forscript ($url) {
 
 add_filter('clean_url', 'add_async_forscript', 11, 1);
 
+//add filter for gravity forms + salesforce plugin multi-select & picklist
+
+add_filter('gf_salesforce_implode_glue', 'change_salesforce_implode_glue');
+
+/**
+ * Change the way the data is submitted to salesforce to force submission as multi picklist values.
+ * @param  string $glue  ',' or ';'
+ * @param  array $field The field to modify the glue for
+ * @return string        ',' or ';'
+ */
+function change_salesforce_implode_glue($glue, $field) {
+
+    // Change this to the Salesforce API Name of the field that's not being passed properly.
+    $name_of_sf_field = 'ExampleMultiSelectPicklist__c';
+
+    // If the field being checked is the Salesforce field that is being truncated, return ';'
+    if($field['inputName'] === $name_of_sf_field || $field['adminLabel'] === $name_of_sf_field) {
+        return ';';
+    }
+
+    // Otherwise, return default.
+    return $glue;
+}
+
 
 
 ?>

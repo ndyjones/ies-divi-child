@@ -37,7 +37,7 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 					}
 				?>
 
-						<p id="footer-info"><?php printf( __( '© 2015 NC State %1$s. All rights reserved.', 'Divi' ), '<a href="http://www.ies.ncsu.edu" title="Industry Expansion Solutions">Industry Expansion Solutions</a>', '<a href="http://www.wordpress.org">WordPress</a>' ); ?></p>
+						<p id="footer-info"><?php printf( __( '© 2016 NC State %1$s. All rights reserved.', 'Divi' ), '<a href="http://www.ies.ncsu.edu" title="Industry Expansion Solutions">Industry Expansion Solutions</a>', '<a href="http://www.wordpress.org">WordPress</a>' ); ?></p>
 					</div>	<!-- .container -->
 				</div>
 			</footer> <!-- #main-footer -->
