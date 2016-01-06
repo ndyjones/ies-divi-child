@@ -34,7 +34,7 @@
 		
 		<div class='page-lead'>
 				
-				<h1><?php echo get_the_title( $ID ); ?></h1>
+				<p>&nbsp;</p>
 		
 		</div>
 	
