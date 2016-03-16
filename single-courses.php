@@ -84,21 +84,26 @@
 											$name_id = $loc_id->name;
 											$start_output = DateTime::createFromFormat('Ymd', $row['start_date'])->format('F d, Y');
 											$end_output = DateTime::createFromFormat('Ymd', $row['end_date'])->format('F d, Y');
+											$session_reg_url = $row['session_deep_link'];
 											//check if end date past
 											if ( $row['end_date'] < date('Ymd') ) {
 
-												//date is past
+												//date is past, display nothing
 											} else {
 
 												echo '	<div class="ies_courseblock">Location:  ' . $name_id .
 												'<br> Start Date:  ' . $start_output .
 												'<br> End Date:  ' . $end_output .
-												'<br> Time:  ' . $row['time'] ;
+												'<br> Time:  ' . $row['time'];
 												if ($row['cost'] == "0" ) {
-													echo '<br> Cost: FREE </div>';
+													echo '<br> Cost: FREE';
 													} else {
-													echo '<br> Cost:  $' . $row['cost'] .
-												'</div>';}
+													echo '<br> Cost:  $' . $row['cost'] ;
+												    }
+												if (!empty($session_reg_url)) {
+												echo '<br><u><strong>' . '<a href="' . $session_reg_url . '" target="_blank">Click to register for this session</a></strong></u>';
+												}
+												echo '</div>';
 											
 											}
 										}
