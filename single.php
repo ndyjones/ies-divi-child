@@ -127,12 +127,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 					<!-- Display ACF PDF attachment if availble -->
 					<?php 
 					$pdftype = "Download PDF File";
-					if ( in_category('solution') ) { $pdftype = "Learn more here";}
-					if ( in_category('success-story') ) { $pdftype = "Download a PDF of this Success";}
+					if ( in_category('solution') ) { $pdftype = "Click here to download a PDF Solution Brief";}
+					if ( in_category('success-story') ) { $pdftype = "Click here to download a PDF of this Client Success Story";}
 
 					if( get_field('ies_story_pdf') ) :
 						$attachPDF = get_field('ies_story_pdf');
-						echo '<p><a href="'. $attachPDF . '"><h4>&raquo; ' . $pdftype . '.</h4></a></p>';
+						echo '<p><strong>DOWNLOAD NOW &raquo; <a href="'. $attachPDF . '">' . $pdftype . '.</a></strong></p>';
 					endif; ?>
 							
 

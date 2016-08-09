@@ -3,7 +3,7 @@
  Description:  A Divi Child Theme for IES
  Author:       Nicolle Jones
  Template:     Divi
- Version:      1.2.0
+ Version:      1.2.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         divi, ncsu, custom post types
@@ -356,13 +356,13 @@ h1, .h1, h2, .h2, {
 /* ET Slider resized to match NCSU front page dimensions */
 @media only screen and ( min-width:768px ) {
     /* Set the slider height */
-    .et_pb_slider, .et_pb_slider .et_pb_container { 
+    #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_container { 
         height: 500px !important; 
     }
-    .et_pb_slider, .et_pb_slider .et_pb_slide { 
+    #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slide { 
         max-height: 500px; 
     }
-    .et_pb_slider .et_pb_slide_description { 
+    #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slide_description { 
         position: relative; 
         top: 25%; 
         padding-top: 0 !important; 
@@ -375,13 +375,13 @@ h1, .h1, h2, .h2, {
 
 @media only screen and ( min-width:768px ) {
     /* Set the slider height */
-    .et_pb_slider, .et_pb_slider .et_pb_container { 
+    #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_container { 
         height: 500px !important; 
     }
-    .et_pb_slider, .et_pb_slider .et_pb_slide { 
+    #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slide { 
         max-height: 500px; 
     }
-    .et_pb_slider .et_pb_slide_description { 
+    #ies-slider-module .et_pb_slider, #ies-slider-module .et_pb_slide_description { 
         position: relative; 
         top: 25%; 
         padding-top: 0 !important; 
@@ -459,10 +459,12 @@ h1, .h1, h2, .h2, {
 
 }
 #ies-slider-module .et_pb_slide_content,
-.et_pb_slide_description h2,
-.et_pb_more_button_wrap {
+#ies-slider-module .et_pb_slide_description h2,
+#ies-slider-module .et_pb_more_button_wrap {
   background-color: #c00;  
 }
+
+#feature-solution-slider { background:aliceblue;}
 
 
 @media only screen and (min-width: 768px) { #ies-slider-module
@@ -483,13 +485,13 @@ h1, .h1, h2, .h2, {
 .et_pb_slide_description:first-child .et_pb_slide_content:empty { display:none; }
 
 /* Add 30px of padding to the background */
-.et_pb_slide_description h2 {
+#ies-slider-module .et_pb_slide_description h2 {
   padding: 30px 30px 10px 30px !important;
   margin-top:-30px;
   margin-left:-30px;
   margin-right:-30px;
 }
-.et_pb_slide_description .et_pb_slide_content,
+#ies-slider-module .et_pb_slide_description .et_pb_slide_content,
 .et_pb_more_button_wrap
  {
   padding:0px 30px 30px 30px !important;
@@ -498,10 +500,10 @@ h1, .h1, h2, .h2, {
 } 
 
 @media only screen and ( max-width: 479px ) { 
-  .et_pb_slide_description h2 {
+ #ies-slider-module .et_pb_slide_description h2 {
     padding-bottom: 30px !important;
   }
-  .et_pb_more_button_wrap {
+#ies-slider-module .et_pb_more_button_wrap {
     display:none;
   }
 }

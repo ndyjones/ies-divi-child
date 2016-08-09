@@ -65,22 +65,34 @@ function change_salesforce_implode_glue($glue, $field) {
     return $glue;
 }
 
-//the events calenda oembed bug fix
+/*
+// Rewrite Divi cpt 'projects' metabox for 'ies solutions' 
+function et_pb_portfolio_meta_box() { ?>
+    <div class="et_project_meta">
+        <strong class="et_project_meta_title"><?php echo esc_html__( 'Tags', 'Divi' ); ?></strong>
+        <p><?php echo get_the_term_list( get_the_ID(), 'project_tag', '', ', ' ); ?></p>
+    </div>
+<?php }
+*/
+
+
+//the events calendar oembed bug fix SHOULD BE FIXED IN NEWEST EVENTS CAL UPDATE
 /**
  * Avoid a problem with Events Calendar PRO 4.2 which can inadvertently
  * break oembeds.
  */
+/*
 function undo_recurrence_oembed_logic() {
     if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) return;
  
     $pro_object   = Tribe__Events__Pro__Main::instance();
     $pro_callback = array( $pro_object, 'oembed_request_post_id_for_recurring_events' );
  
-    remove_filter( 'oembed_request_post_id', $pro_callback );
+   remove_filter( 'oembed_request_post_id', $pro_callback );
 }
  
 add_action( 'init', 'undo_recurrence_oembed_logic' );
-
+*/
 
 
 ?>
