@@ -116,7 +116,7 @@
 								
 								?>
 								<p><h4>On-Site Availability</h4>
-								Any of our open enrollment classes can be brought on-site. Please contact the <a href="http://www.ies.ncsu.edu/staff-list/regional-managers/">IES Regional Manager</a> in your area for more information.
+								Any of our open enrollment classes can be brought on-site. Please <a href="https://www.ies.ncsu.edu/about/contact-us/">Contact Us</a> for more information.
 								</p>
 							<hr>
 

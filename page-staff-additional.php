@@ -10,7 +10,7 @@ get_header(); ?>
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
 			<article>
-				<h1 class="main_title">Additional Staff</h1>
+				<h1 class="main_title">Program Staff</h1>
 				
 				
 				<div class="entry-content">

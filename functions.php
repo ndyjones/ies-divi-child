@@ -14,11 +14,21 @@ add_action( 'wp_head', 'favicon_link' );
 
 
 // import parent style.css
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
-function theme_enqueue_styles() {
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_parent_styles' );
+function theme_enqueue_parent_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-
 }
+
+// import child style, if a style.min.css file exists, use that, otherwise use style.css
+/*add_action( 'wp_enqueue_scripts', 'style_or_min_style' );
+function style_or_min_style() {
+    $located = locate_template( 'style.min.css' );
+     if ($located != '' ) {
+          wp_enqueue_style( 'child-style', get_template_directory_uri() . '/style.min.css" />';
+     } else {
+          wp_enqueue_style( 'child-style', get_template_directory_uri().'/style.css" />';
+     }
+}*/
 
 add_action( 'pre_get_posts', function ( $q ) {
 
@@ -29,6 +39,7 @@ add_action( 'pre_get_posts', function ( $q ) {
     }
 
 });
+
 
 // add async to front-end javascripts
 function add_async_forscript ($url) {
@@ -41,8 +52,8 @@ function add_async_forscript ($url) {
 
 add_filter('clean_url', 'add_async_forscript', 11, 1);
 
-//add filter for gravity forms + salesforce plugin multi-select & picklist
 
+//add filter for gravity forms + salesforce plugin multi-select & picklist
 add_filter('gf_salesforce_implode_glue', 'change_salesforce_implode_glue');
 
 /**
