@@ -5,7 +5,58 @@ Template Name: SF Contact Form Page
 
 get_header(); ?>
 
-  
+  <script type="text/javascript">
+
+//validate phone
+function validatePhone(phone){
+    var re = /^(1?)(-| ?)(\()?((?:[0-9]-?){3})(\)|-| |\)-|\) )?((?:[0-9]-?){3})(-| )?((?:[0-9]-?){4}|(?:[0-9]-?){4})$/;
+    if(re.test(phone))
+    {
+    	document.getElementById('phone').style.background ='#ccffcc';
+    	document.getElementById('phoneError').style.display = "none";
+        return true;
+    }else{
+    	document.getElementById('phone').style.background ='#e35152';
+    	document.getElementById('phoneError').style.display = "block";
+    return false;
+    }
+}
+
+// Validate email
+function validateEmail(email){ 
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if(re.test(email)){
+    document.getElementById('email').style.background ='#ccffcc';
+    document.getElementById('emailError').style.display = "none";
+    return true;
+  }else{
+    document.getElementById('email').style.background ='#e35152';
+    document.getElementById('emailError').style.display = "block";
+    return false;
+  }
+}
+
+function validateForm(){
+	// Set error catcher
+	var error = 0;
+
+	// Validate email
+	if(!validateEmail(document.getElementById('email').value)){
+	  document.getElementById('emailError').style.display = "block";
+	  error++;
+	}
+	// Validate phone
+	if(!validatePhone(document.getElementById('phone').value)){
+	  document.getElementById('phoneError').style.display = "block";
+	  error++;
+	}
+	// Don't submit form if there are errors
+	if(error > 0){
+	  return false;
+	}
+
+}
+</script>
 
 <div id="main-content">
 
@@ -44,11 +95,13 @@ get_header(); ?>
 
 					<p>Tell us what you need! Please fill out the form fields below and we'll be in touch.</p>
 							<div class="IES-contactForm" style="margin-bottom: 45px;">
-							<div class="form-block"><form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST"><input id="lead_source" name="lead_source" type="hidden" value="Web" /><input name="oid" type="hidden" value="00D1a000000J8a3" /><input name="retURL" type="hidden" value="https://www.ies.ncsu.edu/thanks/" />
+							<div class="form-block"><form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" onsubmit="return validateForm()" method="POST"><input id="lead_source" name="lead_source" type="hidden" value="Web" /><input name="oid" type="hidden" value="00D1a000000J8a3" /><input name="retURL" type="hidden" value="https://www.ies.ncsu.edu/thanks/" />
 							<div class="form-item"><label for="first_name">First Name</label><input id="first_name" maxlength="40" name="first_name" required="yes" size="20" type="text" /></div>
 							<div class="form-item"><label for="last_name">Last Name</label><input id="last_name" maxlength="80" name="last_name" required="" size="20" type="text" /></div>
-							<div class="form-item"><label for="email">Email</label><input id="email" maxlength="80" name="email" required="" size="20" type="text" /></div>
-							<div class="form-item"><label for="phone">Phone</label><input id="phone" maxlength="40" name="phone" size="20" type="text" /></div>
+							<div class="form-item"><label for="email">Email</label><input id="email" maxlength="80" name="email" required="" size="20" type="text" onblur="validateEmail(value)" /></div>
+							<span id="emailError" style="font-size: 16px;text-align: center;color: red;display: none;">Please enter a valid email address.</span>
+							<div class="form-item"><label for="phone">Phone</label><input id="phone" maxlength="25" name="phone" size="20" type="text" onblur="validatePhone(value)" /></div>
+							<span id="phoneError" style="font-size: 16px;text-align: center;color: red;display: none;">You have entered an invalid phone number. Please enter a 10-digit number in the format ###-###-####.</span>
 							<div class="form-item"><label for="company">Company</label><input id="company" title="Must contain at least three or more characters" maxlength="40" name="company" pattern="[a-zA-Z0-9]+[a-zA-Z0-9 ]+{3,}" required="" size="20" type="text" /></div>
 							<div class="form-item"><label for="county">County</label><select id="00N1a000005x0eW" title="County" name="00N1a000005x0eW">
 							<option value="Out of State">Out of State</option>
@@ -207,3 +260,4 @@ get_header(); ?>
 </div> <!-- #main-content -->
 
 <?php get_footer(); ?>
+
