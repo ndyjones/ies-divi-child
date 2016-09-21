@@ -76,6 +76,19 @@ function change_salesforce_implode_glue($glue, $field) {
     return $glue;
 }
 
+/* Exclude AddThis from multiple IES CPTs */
+
+add_filter('addthis_post_exclude', 'addthis_post_exclude');
+
+function addthis_post_exclude($display) {
+global $post;
+if( get_post_type($post->ID) ==  is_singular( array('courses','staff') ) ) {
+$display = false;
+return $display;
+}
+}
+
+
 /*
 // Rewrite Divi cpt 'projects' metabox for 'ies solutions' 
 function et_pb_portfolio_meta_box() { ?>

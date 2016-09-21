@@ -3,7 +3,7 @@
  Description:  A Divi Child Theme for IES
  Author:       Nicolle Jones
  Template:     Divi
- Version:      1.2.4
+ Version:      1.2.5
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         divi, ncsu, custom post types
@@ -651,6 +651,8 @@ table#ies_course_table tr td {
   padding-top: 16px;
 }
 
+#course-print h1 { font-size: 18px; color: #cc0000; margin-top: 18px;}
+
 /* staff custom post type display styles */
 
 .ies_staff-title {
@@ -666,7 +668,6 @@ table#ies_course_table tr td {
   line-height: 1.7em;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
-
 }
 
 .ies_staff-list h2 {
@@ -699,6 +700,12 @@ table#ies_course_table tr td {
   float:right;
   margin-left: 30px;
   margin-bottom: 10px;
+}
+@media screen and (max-width: 420px) {
+    .ies_staff-photo {
+       float:none;
+       margin: 20px;
+    }
 }
 
 .ies_staff-contact {
