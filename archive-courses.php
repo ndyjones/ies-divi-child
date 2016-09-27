@@ -10,9 +10,9 @@ get_header(); ?>
 
 				<h1>All IES Courses</h1>
 				
-				<div> <!-- COURSES SEARCH FORM -->
-					<h4 >Browse our Courses and Professional Development offerings:</h4>
-				</div>
+				<div> 
+					<h4>Browse our Courses and Professional Development offerings</h4></div>
+
 				
 				<article>
 					<div id="course-print">
