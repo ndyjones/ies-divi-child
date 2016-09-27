@@ -81,4 +81,5 @@
 
      */ ?>
      <input type="hidden" name="post_type" value="courses" /> <!-- // hidden post type value -->
+    <input type="submit" alt="Search" value="Search" id="srchbut"/>
 </form>

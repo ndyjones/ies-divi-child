@@ -64,6 +64,7 @@ $args = array(
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
 			<div class="search-info">
+				<h1 class="search-title"><?php echo $total_results ?> Search Results for: <em><?php echo $s ?></em></h1>
 			</div>
 		<?php
 			if ( have_posts() ) :
