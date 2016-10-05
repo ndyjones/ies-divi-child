@@ -48,6 +48,7 @@ $total_results = $wp_query->found_posts;
 			<?php
 					endwhile;?>
 					<br />
+
 					<?php
 					if ( function_exists( 'wp_pagenavi' ) )
 						wp_pagenavi();
@@ -57,6 +58,10 @@ $total_results = $wp_query->found_posts;
 					get_template_part( 'includes/no-results', 'index' );
 				endif;
 			?>
+			<!-- debug dump wp_query -->
+			<pre>
+				<?php print_r( $wp_query ); ?>
+			</pre>
 			</div> <!-- #left-area -->
 
 			<?php get_sidebar(); ?>
