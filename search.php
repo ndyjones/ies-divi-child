@@ -6,58 +6,24 @@ get_header();
 
 
 // store the post type from the URL string
-$post_type = $_GET['post_type'];
+$post_type = ! empty( $_GET['post_type'] ) ? $_GET['post_type'] : '';
 
 // check to see if there was a post type in the
 // URL string and if a results template for that
 // post type actually exists
-if ( isset( $post_type ) && locate_template( 'search-' . $post_type . '.php' ) ) {
+if ( 'courses' === $post_type && locate_template( 'search-courses.php' ) ) {
 
   // if so, load that template
-  get_template_part( 'search', $post_type );
-  
+  get_template_part( 'search', 'courses' );
+
   // and then exit out
   exit;
 }
 
-
-// Get data from URL into variables
-if (isset($_GET['delivery'])) { $_delivery = $_GET['delivery']; } else { $_delivery = '';}
-if (isset($_GET['s'])) { $_keyword = $_GET['s']; } else { $_keyword = 'Blank';}
-global $query_string;
-
-$query_args = explode("&", $query_string);
-$search_query = array();
-
-if( strlen($query_string) > 0 ) {
-	foreach($query_args as $key => $string) {
-		$query_split = explode("=", $string);
-		$search_query[$query_split[0]] = urldecode($query_split[1]);
-	} // foreach
-} //if
-
-$search = new WP_Query($search_query);
-
+//total results found
 global $wp_query;
 $total_results = $wp_query->found_posts;
-
-$args = array(
-	'base'               => '%_%',
-	'format'             => '?paged=%#%',
-	'total'              => 1,
-	'current'            => 0,
-	'show_all'           => false,
-	'end_size'           => 1,
-	'mid_size'           => 2,
-	'prev_next'          => true,
-	'prev_text'          => __('« Previous'),
-	'next_text'          => __('Next »'),
-	'type'               => 'plain',
-	'add_args'           => false,
-	'add_fragment'       => '',
-	'before_page_number' => '',
-	'after_page_number'  => ''
-); ?>
+?>
 
 <div id="main-content">
 	<div class="container">
@@ -83,7 +49,6 @@ $args = array(
 			<?php
 					endwhile;?>
 					<br />
-					<?php echo paginate_links( $args ); ?><br />
 					<?php
 					if ( function_exists( 'wp_pagenavi' ) )
 						wp_pagenavi();
