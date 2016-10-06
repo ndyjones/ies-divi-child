@@ -69,5 +69,8 @@ return $display;
 }
 }
 
+//remove SEO Framework pre_get_posts
+function_exists( 'the_seo_framework' ) and remove_action( 'pre_get_posts', array( the_seo_framework(), 'adjust_search_filter' ), 9999 ); 
+
 
 ?>
